@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Neo4J Security
-tagline: Configuring Security in Neo4J
+title: Neo4J Spark Connector
+tagline: Using the Neo4J Spark Connector
 
-description: Configuring Security in Neo4J
+description: Using the Neo4J Spark Connector
 ---
 
