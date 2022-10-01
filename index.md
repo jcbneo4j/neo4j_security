@@ -140,8 +140,7 @@ Similarly, the write_neo4j_node_relationship is called with parameters for the d
 In summary, the usage pattern in this code is:
     - Read data from parquet files into dataframes, transforming as needed.
     - Write all of the the nodes first
-    - Then, write the relationships last, taking into considerations for write locks based off of the data model. Writing in this fashion takes advantage of Spark parallelism. Note: in the first cell this 
-
+    - Then, write the relationships last, taking into considerations for write locks based off of the data model. Writing in this fashion takes advantage of Spark parallelism. Note: in the first cell was configured with 15 executor cores. If any locking was experienced during writes to Neo4j, I would have considered taking the number down, as well with the following option to take it down to 1 thread with <dataframe var>.coalesce(1) (code is in the notebook)
 
 ```python
 """
