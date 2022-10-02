@@ -6,7 +6,7 @@ tagline: Using the Neo4j Spark Connector
 description: Using the Neo4j Spark Connector
 ---
 
-The [Neo4j Spark Connector Site](https://neo4j.com/docs/spark/current/) is a plugin available from Neo4j to enable a developer to perform read/writes to a Neo4j database from within a Spark environment. In this post we'll give an example of using the connector to pull data from parquet files hosted in AWS S3 and work within a notebook used in the [Amazon EMR](https://neo4j.com/docs/spark/current/) Spark environment. 
+The [Neo4j Spark Connector](https://neo4j.com/docs/spark/current/) is a plugin available from Neo4j to enable a developer to perform read/writes to a Neo4j database from within a Spark environment. In this post we'll give an example of using the connector to pull data from parquet files hosted in AWS S3 and work within a notebook used in the [Amazon EMR](https://neo4j.com/docs/spark/current/) Spark environment. 
 
 In a first high-level example (assuming the Neo4j spark connector is already configured in our environment), we perform the following:
     
