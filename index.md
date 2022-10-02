@@ -9,7 +9,7 @@ description: Using the Neo4j Spark Connector
 The [Neo4j Spark Connector Site](https://neo4j.com/docs/spark/current/) is a plugin available from Neo4j to enable a developer to perform read/writes to a Neo4j database from within a Spark environment. In this post we'll give an example of using the connector to pull data from parquet files hosted in AWS S3 and work within a notebook used in the [Amazon EMR](https://neo4j.com/docs/spark/current/) Spark environment. 
 
 In a first high-level example (assuming the Neo4j spark connector is already configured in our environment), we perform the following:
-
+    
     - create connection to the spark connector
     - build a sample set of data in a simple representation of people with their data of birth and write to a spark dataframe
     - we take the dataframe and write to a parquet file (on disk in this example)
@@ -138,6 +138,7 @@ We have a Python method called 'get_cypher_query' which stores all of the cypher
 Similarly, the write_neo4j_node_relationship is called with parameters for the dataframe variable and the key for to the model_map, making a one-line call leaving the configuration of the mapping of nodes/properties and relationships in one place to maintain. Ex. write_neo4j_node_relationship(no_empty_strings_in_column_df, "node1_node2")
 
 In summary, the usage pattern in this code is:
+    
     - Read data from parquet files into dataframes, transforming as needed.
     - Write all of the the nodes first
     - Then, write the relationships last, taking into considerations for write locks based off of the data model. Writing in this fashion takes advantage of Spark parallelism. Note: in the first cell was configured with 15 executor cores. If any locking was experienced during writes to Neo4j, I would have considered taking the number down, as well with the following option to take it down to 1 thread with <dataframe var>.coalesce(1) (code is in the notebook)
